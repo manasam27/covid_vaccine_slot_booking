@@ -1,0 +1,107 @@
+{% extends "navbar.html" %}
+{% block title %}
+Slot Booking
+{% endblock title %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<div class="container mt-4">
+    <div class="display-4 text-center text-secondary"><u><b>Book your slot</b></u></div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                {% include "message.html" %}
+                <div class="card-body bg-light">
+                    <h4 class="text-secondary text-center" >Covid Care Center</h4>
+                    <form action="/slotbooking" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="aadharno" value="{{current_user.aadharno}}" readonly required>
+                        </div>
+                        <div class="form-group mt-2">
+                          <select id="vaccinetype" name="vaccinetype" class="form-control bg-light text-secondary" required>
+                              <option selected>--Select Vaccine Type--</option>
+                              <option value="covaxin">Covaxin</option>
+                              <option vaxin="covishield">Covishield</option>
+                              <option value="sputnik">Sputnik v</option>
+                          </select>  
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="hcode" placeholder="Enter the hospital code" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="pname" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control mt-2" name="age" placeholder="Enter your age" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="gender" placeholder="Enter gender" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="pphone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="paddress" placeholder="Enter your address" required>
+                        </div>
+                        
+
+                        <br>
+                        <button class="btn btn-success" type="submit">Book the slot</button>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-7">
+            <h3 class="text-center text-secondary"><b>SLOTS AVAILABLE</b></h3>
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                      <th scope="col">Hospital code</th>
+                      <th scope="col">Hospital Name</th>
+                      <th scope="col">Covaxin available</th>
+                      <th scope="col">Covishield available</th>
+                      <th scope="col">Sputnik V available</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for post in query  %}
+                    <tr>
+                      <th scope="row">{{post.hcode}}</th>
+                      <td>{{post.hname}}</td>
+                      <td>{{post.vvaxin}}</td>
+                      <td>{{post.vshield}}</td>
+                      <td>{{post.vsputnik}}</td>
+
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            
+    </div>
+<!-- ======= Map Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>MAPS</h2>
+        <p>Locate your Vaccine Centre here.</p>
+      </div>
+    </div>
+
+    <div>
+      <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.55224414152!2d77.49085229224842!3d12.954294599086916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1642430441810!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+  </section><!-- End Map Section -->
+</div>
+</div>
+{% endblock body %}

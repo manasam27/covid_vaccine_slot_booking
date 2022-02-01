@@ -1,0 +1,36 @@
+{% extends 'baselogin.html' %}
+{% block title %}HOSPITAL USER{% endblock title %}
+{% block form %}
+<h2><b>ADD HOSPITAL USERS</b><h2>
+{% include "message.html" %}    
+<div class="row">
+<div class="col-md-4"></div> 
+    
+    <form action="/addHospitalUser" method="post"> 
+        <div class="form-group">
+        <input type="text" class="form-control mt-2" placeholder="Enter hospital code" name="hcode"  required>  
+        </div> 
+        <div class="form-group">
+        <input type="email" class="form-control mt-2" placeholder="Enter email" name="email"  required>  
+        </div>
+        <div class="form-group">
+        <input type="password" class="form-control mt-2" placeholder="Enter Password" name="password"  required>  
+        </div> 
+        <button type="submit" class="btn btn-info">Add data</button>  <br><br> <a href="/logoutadmin" type="submit" class="btn btn-danger text-light" >Logout</a>
+        <br> 
+        <br>
+        
+    </form>   
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-4"></div>
+
+
+<br>
+
+
+</div>
+
+{% endblock form %}
+
+

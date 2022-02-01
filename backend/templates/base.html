@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %}{% endblock title %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/CF.png" rel="icon">
+  <link href="static/assets/img/CF.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Medilab - v4.7.0
+  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">covifree@gmail.com</a>
+        <i class="bi bi-phone"></i>+91 8867346709 
+      </div>
+      <div class="d-none d-lg-flex social-links align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><i class="fas fa-shield-virus"></i><a href="index.html"> COVIFREE</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/pdetails">User Details</a></li>
+          <li><a class="nav-link scrollto" href="/slotbooking">Availibilty</a></li>
+          <li><a class="nav-link scrollto" href="/trigers">Operations</a></li>
+
+{% if current_user.is_authenticated and current_user.hcode %}
+
+          <li class="dropdown"><a href="/login"><span>Welcome {{current_user.email}}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/addhospitalinfo">Add Hospital Data</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </li>
+{% elif current_user.is_authenticated and current_user.aadharno%}         
+          <li class="dropdown"><a href="/login"><span>Welcome {{current_user.email}}</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="/slotbooking">Book slot</a></li>
+             <li><a href="/logout">Logout</a></li>
+          </ul>
+          </li>
+{% else %}         
+          <li class="dropdown"><a href="/login"><span>Sign In</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/login">User Login</a></li>
+              <li><a href="/hospitallogin">Hospital Login</a></li>
+              <li><a href="/admin">Admin Login</a></li>
+            </ul>
+          </li>
+{% endif %}          
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="/slotbooking" class="appointment-btn scrollto"><span class="d-none d-md-inline">Book your slot</span></a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>WELCOME TO COVIFREE</h1>
+      <h2>Roll up your sleeve. Give it a shot!<img src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-injection-baby-icongeek26-linear-colour-icongeek26.png"/></h2>
+      <a href="/slotbooking" class="btn-get-started scrollto">Book now</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+   {% block body %}
+   
+   
+   {% endblock body %} 
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
+            
+          </div>
+
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Haven't been vaccinated yet?</h3>
+            <p>What are you waiting for? Book you slot now and stay protected.</p>
+
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-syringe"></i></div>
+              <h4 class="title"><a href="">Get vaccinated</a></h4>
+              <p class="description">Getting vaccinated is the best thing you can do to protect yourself and your family from COVID-19. Every citizen 15 and above are eligible to get the vaccine against Covid-19. Vaccination slots can now be booked at COVIFREE.
+              </p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-home"></i></div>
+              <h4 class="title"><a href="">Stay home</a></h4>
+              <p class="description">Stay home and keep you and your loved ones safe. We made it easier for you by COVIFREE.
+              </p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-head-side-mask"></i></div>
+              <h4 class="title"><a href="">Wear your mask</a></h4>
+              <p class="description">Wear a mask to protect yourself and the people around you. Everyone 2 years or older who is not fully vaccinated should wear a mask. Also people who are fully vaccinated should continue taking precautions, including wearing a well-fitted mask.
+              </p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-people-arrows"></i></div>
+              <h4 class="title"><a href="">Maintain social distance</a></h4>
+              <p class="description">Maintain social distancing by staying home and away from others as much as possible to help prevent spread of COVID-19.
+              </p>
+            </div>
+            <br>
+            <p>For more information on Covid-19 guidelines scroll down.</p>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="count-box">
+              <i class="fas fa-user-md"></i>
+              <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Private Hospitals</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="far fa-hospital"></i>
+              <span data-purecounter-start="0" data-purecounter-end="76" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Goverment Hospitals</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-flask"></i>
+              <span data-purecounter-start="0" data-purecounter-end="54" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Vaccine Centers</p>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+     
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Gallery</h2>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-2.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-3.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-4.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-5.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-6.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-7.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="static/assets/img/gallery/gallery-8.jpg" class="galelry-lightbox">
+                <img src="static/assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+   
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>COVIFREE</h3>
+            <p>
+              Bangalore,<br>
+              Karnataka,<br>
+              India. <br><br>
+              <strong>Phone:</strong> +91 8867346709<br>
+              <strong>Email:</strong> covifree@gmail.com<br>
+            </p>
+          </div>
+
+          
+
+          <div class="col-lg-3 col-md-4 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/login">Register Users</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/hospitallogin">Register Hospitals</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/slotbooking">Book Vaccination Slots</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/addhospitalinfo">Manage Hospital Data</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/pdetails">Manage User Data</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 col-md-6 footer-links">
+            <h4>Guidelines</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i>Some of the primary contacts to look for in a Covid-19 infected person are fever,dizziness,breathlessness,headache,cough and in a few cases loss in smell and taste.</li>
+              <li><i class="bx bx-chevron-right"></i>The recommended duration of quarantine for Covid-19 based on available information is upto 14 days from the time of exposure.</li>
+              <li><i class="bx bx-chevron-right"></i></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>covifree</span></strong>. All Rights Reserved.
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

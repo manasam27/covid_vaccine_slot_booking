@@ -1,4 +1,5 @@
-The “Hospital Record Management using primary indexing” is an application for maintaining the records of hospital staff and patient. The main aim of this application is to computerize the process of Hospital Records management. This application is designed to provide a user-friendly access for the admin to add, view or delete the records.
+The project “COVID-19 Vaccine Slot Management” is a simple appointment scheduling system to facilitate the residents with scheduling their COVID-19 vaccine appointments. The aim of this website is to manage mass vaccination, including vaccine distribution and administration.
+
 ![Screenshot (63)](https://github.com/manasam27/covid_vaccine_slot_booking/assets/75308392/3f8bc45f-f25b-40e6-8232-179faa58cbd6)
 
 ![Screenshot (64)](https://github.com/manasam27/covid_vaccine_slot_booking/assets/75308392/b20459e1-cbd7-4fec-86d0-58b9811acdf7)

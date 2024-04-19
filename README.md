@@ -1,0 +1,1 @@
+The “Hospital Record Management using primary indexing” is an application for maintaining the records of hospital staff and patient. The main aim of this application is to computerize the process of Hospital Records management. This application is designed to provide a user-friendly access for the admin to add, view or delete the records.
